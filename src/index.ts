@@ -38,7 +38,8 @@ const allowedOrigins = [
   "http://localhost:3001", 
   "http://localhost:3002",
   "https://instant-booking-demo.netlify.app",
-  "https://legendary-sfogliatella-1628a3.netlify.app"
+  "https://legendary-sfogliatella-1628a3.netlify.app",
+  "https://instant-rebook-ui-proto-1cn5-wale-opal.vercel.app"
 ];
 
 app.use(
