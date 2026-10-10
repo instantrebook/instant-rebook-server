@@ -1,7 +1,7 @@
 import SMTPTransport from "nodemailer/lib/smtp-transport";
 import nodemailer from "nodemailer";
-import { accountVerifyTemplate, messageTemplate } from "../templates/emailVerification.template";
-import { SendEmailType, SendUserEmailType } from "../types/email.type";
+import { accountVerifyTemplate, hotelBookingLinkTemplate, messageTemplate } from "../templates/emailVerification.template";
+import { SendEmailType, SendUserBookingEmailType, SendUserEmailType } from "../types/email.type";
 
 
 let transporter: any;
@@ -62,6 +62,28 @@ export const sendUserMessageEmail = async ({
         to: emailTo,
         subject: subject,
         html: messageTemplate(message, firstName!),
+      });
+      return response;
+    } catch (error) {
+      throw error;
+    }
+};
+
+
+export const sendUserBookingEmail776 = async ({
+    emailTo,
+    subject,
+    message,
+  }: SendUserBookingEmailType) => {
+    // Init the nodemailer transporter
+    transporterInit();
+  
+    try {
+      let response = await transporter.sendMail({
+        from: "Knowledge Chain",
+        to: emailTo,
+        subject: subject,
+        html: hotelBookingLinkTemplate(message,),
       });
       return response;
     } catch (error) {

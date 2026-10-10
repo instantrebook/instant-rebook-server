@@ -11,3 +11,9 @@ export type SendUserEmailType = {
     message: string;
     firstName?: string;
 };
+
+export type SendUserBookingEmailType = {
+    emailTo: string;
+    subject: string;
+    message: string;
+};

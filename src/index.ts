@@ -11,6 +11,8 @@ import rateLimit from "express-rate-limit";
 import hotelRoute from "./hotel/route/route";
 // import adminRoute from "./admin/route/routes";
 
+import externalHotelRoute from "./hotel/external/hotel.route";
+
 dotenv.config(); // Load environment variables at the very beginning
 
 const app = express();
@@ -89,6 +91,8 @@ app.use(
 );
 
 app.use("/api/hotel", hotelRoute);
+
+app.use("/api/v2/hotel", externalHotelRoute);
 // app.use("/admin", adminRoute);
 
 

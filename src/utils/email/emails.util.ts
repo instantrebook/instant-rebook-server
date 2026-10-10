@@ -1,3 +1,5 @@
+import { hotelBookingLinkTemplate } from "../../templates/emailVerification.template";
+import { SendUserBookingEmailType } from "../../types/email.type";
 import { sendEmail } from "./bravoEmail.utl";
 import { recieptEmailTemplate } from "./customer.recieptEmail.util";
 
@@ -170,16 +172,22 @@ async function sendRecieptEmail(
   }
 }
 
+export const sendUserBookingEmail = async ({
+    emailTo,
+    subject,
+    message,
+  }: SendUserBookingEmailType) => {
 
-// async function sendWelcomeAgency(email: string): Promise<void> {
-//   try {
-//     const html = emailTemplates.welcomeAgency();
-//     sendEmail(email, 'Welcome to YAWA: Your Safety, Our Priority!', html)
-//     console.log('Welcome email sent successfully');
-//   } catch (error) {
-//     console.error('Error sending welcome email:', error);
-//   }
-// }
+    try {
+      const html = hotelBookingLinkTemplate(message,)
+
+      sendEmail(emailTo, subject, html)
+    } catch (error) {
+      throw error;
+    }
+};
+
+
 
 export {
     sendVerificationEmail,
